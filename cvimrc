@@ -1,0 +1,18 @@
+map b :bookmarks!<SPACE>
+map F createActiveTabbedHint
+"上/下一页(百度) | 上/下一章(manhuadui)
+let previousmatchpattern = "((?!last)(prev(ious)?|newer|back|«|less|<|‹| |上一.*)+)"
+let nextmatchpattern = "((?!first)(next|older|more|>|›|»|forward| |下一.*)+)"
+
+let mapleader = ","
+map <Leader>n :tabdetach<CR>
+map <Leader>m :tabattach<SPACE>
+map <Leader>d :duplicate<CR>
+
+" Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+  function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
